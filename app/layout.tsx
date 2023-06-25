@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Navbar from '../components/navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +14,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className='bg-gray-100'>
+      <body className={inter.className}>
+        <Navbar/>
+        <main className="lg:px-[150px] xs:px-[150px] py-10 h-screen" >
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
