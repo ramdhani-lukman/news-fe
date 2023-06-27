@@ -25,7 +25,7 @@ export default function CurrentDate() {
     return (
         <div className="max-sm:m-4" >
             <h1 className="text-2xl" >{greetingText}</h1>
-            <p> { moment(new Date()).format("dddd,DD MMMM YYYY") } </p>
+            <p> { moment(new Date()).format("dddd, DD MMMM YYYY") } </p>
         </div>
     )
 }
