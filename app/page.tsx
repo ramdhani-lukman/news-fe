@@ -10,7 +10,6 @@ export default function Home() {
             <div>
                 <div className="flex flex-row justify-between max-sm:flex-col max-sm:m-2">
                     <TopStories />
-                    <PicksForYou />
                 </div>
             </div>
         </>

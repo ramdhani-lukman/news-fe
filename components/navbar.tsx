@@ -11,16 +11,18 @@ export default function Navbar() {
         const localStorageUser = localStorage.getItem('user');
         if(localStorageUser){
             setIsLogedIn(true);
+        }else{
+            setIsLogedIn(false);
         }
     }, [user])
+
     return (
         <div className="flex justify-between p-3 place-items-center shadow-xl">
-            <div className="mx-3">
-                <img src="/images/logo.png" className="max-w-[150px]" />{" "}
-            </div>
-            <div className="grow mx-5">
+            <div className="mx-3 flex">
+                <img src="/images/logo.png" className="max-w-[160px]" />
                 <input
-                    className="delay-75 
+                    className="delay-75
+                        ml-4 
                         appearance-none w-full bg-gray-200 text-gray-700 border
                         border-gray-200 rounded py-3 px-4 leading-tight 
                         focus:outline-none focus:bg-white focus:border-gray-500 
@@ -30,8 +32,10 @@ export default function Navbar() {
                     placeholder="Search topic"
                 />
             </div>
+            <div className="w-100 flex">
+                { isLogedIn ? <ProfileButton setUser={setUser} /> : <LoginButton setUser={setUser} /> }
+            </div>
             
-            { isLogedIn ? <ProfileButton /> : <LoginButton setUser={setUser} /> }
         </div>
     );
 }
