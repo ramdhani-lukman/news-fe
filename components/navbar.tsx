@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import ProfileButton from "./navbar/ProfileButton";
 import LoginButton from "./navbar/LoginButton";
+import Link from "next/link";
 
 export default function Navbar() {
     const [user, setUser] = useState(false);
@@ -19,7 +20,10 @@ export default function Navbar() {
     return (
         <div className="flex justify-between p-3 place-items-center shadow-xl">
             <div className="mx-3 flex">
-                <img src="/images/logo.png" className="max-w-[160px]" />
+                <Link href="/">
+                    <img src="/images/logo.png" className="max-w-[160px]" />
+                </Link>
+
                 <input
                     className="delay-75
                         ml-4 

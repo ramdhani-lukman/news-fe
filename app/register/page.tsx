@@ -11,6 +11,7 @@ export default function page() {
     
     const handleRegister = (e : any) => {
         e.preventDefault();
+        
         const baseURL = process.env.NEXT_PUBLIC_API_BASEURL;
         const completeURL = baseURL+"/api/register";
         
@@ -74,7 +75,7 @@ export default function page() {
                 </div>
                 
                 <div className="flex justify-end w-full">
-                    <button className="group relative h-12 w-32 overflow-hidden rounded-3xl bg-blue-500 text-lg font-bold text-white" onClick={() => {handleRegister(this)}} >
+                    <button className="group relative h-12 w-32 overflow-hidden rounded-3xl bg-blue-500 text-lg font-bold text-white" onClick={handleRegister} >
                         Register
                     </button>
                 </div>

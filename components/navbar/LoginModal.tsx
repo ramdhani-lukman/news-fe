@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ErrorAlert from "../ErrorAlert";
+import Link from "next/link";
 
 export default function LoginModal({showLoginModal,setShowLoginModal, setUser}) {
     const [modalClassName,setModalClassName] = useState('hidden');
@@ -50,12 +51,16 @@ export default function LoginModal({showLoginModal,setShowLoginModal, setUser}) 
                             <div className="mb-6">
                                 <input type="email" name="email" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                             </div>
-                            <div className="mb-6">
+                            <div className="">
                                 <input type="password" name="password" className="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 " placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                             </div>
                         </form>
 
-                        <div className="space-y-2">
+                        <div className="mt-2 text-right underline text-blue-500">
+                            <Link href={'/register'} onClick={() => setShowLoginModal(false)}> Doesnt have account? Register here </Link>
+                        </div>
+
+                        <div className="space-y-2 mt-6">
                             <button className="p-3 bg-blue-500 rounded-full text-white w-full font-semibold" onClick={handleLogin} >
                                 Sign in
                             </button>
