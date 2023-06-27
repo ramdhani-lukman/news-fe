@@ -16,8 +16,9 @@ export default function LoginModal({showLoginModal,setShowLoginModal, setUser}) 
     
     const handleLogin = async (e : any) => {
         e.preventDefault();
-        const baseURL = process.env.REACT_APP_API_BASE_URL
-        axios.post("http://news-be.test/api/login",{
+        const baseURL = process.env.NEXT_PUBLIC_API_BASEURL
+        const completeURL = baseURL + "/api/login";
+        axios.post(completeURL,{
             email,
             password
         }).then((response) => {
