@@ -1,10 +1,18 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProfileButton from "./navbar/ProfileButton";
+import LoginButton from "./navbar/LoginButton";
 
 export default function Navbar() {
     const [user, setUser] = useState(false);
+    const [isLogedIn, setIsLogedIn] = useState(false);
 
+    useEffect(() => {
+        const localStorageUser = localStorage.getItem('user');
+        if(localStorageUser){
+            setIsLogedIn(true);
+        }
+    }, [user])
     return (
         <div className="flex justify-between p-3 place-items-center shadow-xl">
             <div className="mx-3">
@@ -22,7 +30,8 @@ export default function Navbar() {
                     placeholder="Search topic"
                 />
             </div>
-            <ProfileButton />
+            
+            { isLogedIn ? <ProfileButton /> : <LoginButton setUser={setUser} /> }
         </div>
     );
 }
