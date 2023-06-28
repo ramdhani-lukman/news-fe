@@ -17,19 +17,22 @@ export default function Navbar() {
         }else{
             setIsLogedIn(false);
         }
-    }, [user])
+    }, [user]);
 
-    const handleSubmit = () => {
-        return window.location.href = "/search"
+    const handleSubmit = (e : any) =>{
+        e.preventDefault();
+        const baseURL = process.env.NEXT_PUBLIC_APP_BASEURL;
+        const completeURL = baseURL + "/search?q="+search;
+        window.location.href = completeURL
     }
-
+    
     return (
         <div className="flex justify-between p-3 place-items-center shadow-xl">
             <div className="mx-3 flex">
                 <Link href="/">
                     <img src="/images/logo.png" className="max-w-[160px]" />
                 </Link>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                     <div className="flex items-center ml-4 delay-75
                                 appearance-none w-full bg-gray-200 text-gray-700 border
                                 border-gray-200 rounded py-3 px-4 leading-tight 
