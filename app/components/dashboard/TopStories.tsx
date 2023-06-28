@@ -4,7 +4,8 @@ import Item from "../news/item";
 // import getHeadLines from '/lib/getHeadlines';
 import ErrorCard from "../errorCard";
 import getHeadLines from "@/app/lib/getHeadlines";
-import { FaSearch, FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import {  FaAngleRight, FaAngleLeft, FaCalendar } from "react-icons/fa";
+
 
 export default function TopStories() {
     const [headlines, setHeadlines] = useState([]);
@@ -12,6 +13,8 @@ export default function TopStories() {
     const [triggerSearch, setTriggerSearch] = useState(true);
     const [page, setPage] = useState(1);
     const [category, setCategory] = useState('');
+
+
 
     const categories = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']; 
 
@@ -44,7 +47,7 @@ export default function TopStories() {
                 <h3 className="text-2xl mb-2 text-blue-500 cursor-pointer">
                     Headlines
                 </h3>
-                <form onSubmit={handleSearch}>
+                <form onSubmit={handleSearch} className="flex items-center" >
                     <input
                         className="outline-gray-400 border border-gray-400 p-2 rounded-lg"
                         placeholder="Search Topic"
@@ -52,6 +55,7 @@ export default function TopStories() {
                     />
                 </form>
             </div>
+
             <div className="flex gap-8 justify-around p-1" >
                 {categories.map((category : string) => {
                     return (<button className="hover:font-semibold rounded-lg p-1" onClick={() => setCategory(category)} >{category}</button>)

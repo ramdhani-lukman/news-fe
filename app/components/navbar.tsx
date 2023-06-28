@@ -27,7 +27,7 @@ export default function Navbar() {
         const baseURL = process.env.NEXT_PUBLIC_APP_BASEURL;
         const completeURL = baseURL + "/search/"+search;
         router.push(completeURL)
-        // window.location.href = completeURL
+        window.location.href = completeURL
     }
     
     return (
