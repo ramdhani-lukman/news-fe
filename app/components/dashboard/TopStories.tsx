@@ -62,18 +62,18 @@ export default function TopStories() {
                 <Item news={news} key={news.title} />
             ))}
 
-            <div className="pt-2 flex justify-end">
+            <div className="pt-2 flex justify-end items-center">
               {page > 1 && (
                 <button
-                  className="p-2 mr-1 bg-blue-600 text-white rounded-full align-right"
+                  className="p-2 mr-1 bg-blue-400 hover:bg-blue-500 text-white rounded-full align-right"
                   title="Previous page"
                   onClick={() => setPage(page - 1)}
                 >
                   <FaAngleLeft />
                 </button>
               )}
-
-                <button className="p-2 ml-1 bg-blue-600 text-white rounded-full align-right" title="Next page"
+                Page {page}
+                <button className="p-2 ml-1 bg-blue-400 hover:bg-blue-500 text-white rounded-full align-right" title="Next page"
                   onClick={() => setPage(page + 1)}
                 >
                     <FaAngleRight />
