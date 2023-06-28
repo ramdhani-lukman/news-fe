@@ -2,11 +2,11 @@
 import axios from "axios";
 
 export default async function getSearched(
-        token : string, 
-        q : string,
-        sources : string,
-        from : string,
-        to : string,
+        token : any, 
+        q : any,
+        sources : any,
+        from : any,
+        to : any,
         page : number = 1
     ){
     const apiBaseURL = process.env.NEXT_PUBLIC_API_BASEURL;
@@ -22,8 +22,10 @@ export default async function getSearched(
         headers : {
             "Authorization" : token ? "Bearer "+token : ""
         },
-    })
+    });
+    
     if(headlines.status != 200){
+        console.log("HERE")
         alert("Failed fetching headlines")
         return false
     }

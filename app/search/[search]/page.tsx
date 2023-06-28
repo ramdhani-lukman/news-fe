@@ -6,7 +6,7 @@ import getSources from "@/app/lib/getSources";
 import React, { useState, useEffect } from "react";
 
 export default function page({ params }: { params: { search: string } }) {
-    const [searchQuery, setSearchQuery] = useState();
+    const [searchQuery, setSearchQuery] = useState(params.search);
     const [sources, setSources] = useState([]);
     const [news,setNews] = useState([]);
 
@@ -25,12 +25,18 @@ export default function page({ params }: { params: { search: string } }) {
         fetchSources();
     }, []);
 
-    useEffect(async () => {
-        const token = localStorage.getItem('api_token');
-        const request = await getSearched(token,params.search,source,startDate,endDate);
-        const news = request.data;
-        setNews(news);
-    }, [source,startDate,endDate])
+    useEffect(() => {
+        const getToken = localStorage.getItem("api_token");
+        const token = getToken == null ? "" : getToken;
+        async function fetchHeadlines() {
+            const result = await getSearched(token,searchQuery,source,startDate,endDate);
+            if (result) {
+                setNews(result);
+            }
+        }
+
+        fetchHeadlines();
+    }, [source,startDate,endDate]);
     
 
 
