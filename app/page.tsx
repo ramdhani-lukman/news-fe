@@ -1,6 +1,7 @@
-import CurrentDate from "@/components/dashboard/CurrentDate";
-import PicksForYou from "@/components/dashboard/PicksForYou";
-import TopStories from "@/components/dashboard/TopStories";
+import Category from "./components/dashboard/Category";
+import CurrentDate from "./components/dashboard/CurrentDate";
+import PicksForYou from "./components/dashboard/PicksForYou";
+import TopStories from "./components/dashboard/TopStories";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,8 +9,13 @@ export default function Home() {
         <>
             <CurrentDate />
             <div>
-                <div className="flex flex-row justify-between max-sm:flex-col max-sm:m-2">
-                    <TopStories />
+                <div className="grid grid-cols-6 gap-8">
+                    <div className="col-span-6">
+                        <TopStories />
+                    </div>
+                    {/* <div className="col-span-2">  
+
+                    </div> */}
                 </div>
             </div>
         </>

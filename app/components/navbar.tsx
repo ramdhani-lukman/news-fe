@@ -4,12 +4,15 @@ import ProfileButton from "./navbar/ProfileButton";
 import LoginButton from "./navbar/LoginButton";
 import Link from "next/link";
 import {FaSearch} from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+
 
 export default function Navbar() {
     const [user, setUser] = useState(false);
     const [isLogedIn, setIsLogedIn] = useState(false);
     const [search, setSearch] = useState("")
-
+    const router = useRouter();
+    
     useEffect(() => {
         const localStorageUser = localStorage.getItem('user');
         if(localStorageUser){
@@ -22,8 +25,9 @@ export default function Navbar() {
     const handleSubmit = (e : any) =>{
         e.preventDefault();
         const baseURL = process.env.NEXT_PUBLIC_APP_BASEURL;
-        const completeURL = baseURL + "/search?q="+search;
-        window.location.href = completeURL
+        const completeURL = baseURL + "/search/"+search;
+        router.push(completeURL)
+        // window.location.href = completeURL
     }
     
     return (

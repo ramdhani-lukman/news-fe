@@ -13,7 +13,7 @@ export default function Item({news} : {news : any}) {
         </div>
         <div>
           <div className='text-gray-400 md:mt-4 text-sm' >{news.source}</div>
-          <h1 className='text-md md:text-2xl' >{news.title}</h1>
+          <h1 className='text-md md:text-1xl' >{news.title}</h1>
           <p className='text-gray-400 text-sm' >{moment(news.date).fromNow()}</p>
           <p className='text-gray-400 text-sm mb-4' >{news.author}</p>
         </div>
